@@ -1,4 +1,4 @@
-# OIC-#_Report
+# OIC-158_TEM_Nuclei_Segmentation_Report
 Total Hours: 17.5
 
 Github Repo: https://github.com/vaioic/OIC-158_TEM_Nuclei_Segmentation
@@ -58,9 +58,41 @@ These bands were used to mask and measure the heterochromatin within the band:
 
 ![Heterochromatin in band](/Snapshots/Heterochromatin_25-pixel_band.png)
 
-While electron microscopy is a powerful technique for evaluating the ultrastructure of the cells, the electron density cannot be directly compared between samples, so normalizing approaches are required for making comparisons. Additionally, with TEM on ultrathin sections
+While electron microscopy is a powerful technique for evaluating the ultrastructure of the cells, the electron density cannot be directly compared between samples, so normalizing approaches are required for making comparisons. Additionally, with TEM on ultra thin sections, it is challenging to know if the section of sample is the same relative location from cell to cell, so using normalized shape descriptors are required to make comparisons.
+
+
 ## Output
 **Important Note: I was not given a key for the images, so I was unable to assign the condition name to the data, all measurements and exported images were named as *sample#*-*cell#*-*image#*.** 
+
+Example of the measurement tables and key below:
+
+|    |   Unnamed: 0 |   object_ID |   Nuc_area_um^2 |   eccentricity |   equivalent_diameter_area_um^2 |   extent |   perimeter_um |   solidity |   Image_intensity_max |   Cell_ID |   Nuc_region_ID |   Band_ID |   Dense_nuc_regions_ID |   Heterochromatin_band_ID |   nuc_circularity |   heterochromatin_area_in_band_um^2 |   25-pixel_band_area_um^2 |   norm_area_heterochromatin_in_band |
+|---:|-------------:|------------:|----------------:|---------------:|--------------------------------:|---------:|---------------:|-----------:|----------------------:|----------:|----------------:|----------:|-----------------------:|--------------------------:|------------------:|------------------------------------:|--------------------------:|------------------------------------:|
+|  0 |            0 |           1 |         9.53172 |       0.728778 |                         3.4837  | 0.542944 |        16.7193 |   0.801982 |                 16603 |         1 |               1 |         1 |                      1 |                         1 |          0.428492 |                            1.21831  |                  2.45502  |                            0.496254 |
+|  1 |            1 |           2 |         8.93387 |       0.563816 |                         3.37268 | 0.642898 |        12.5406 |   0.923839 |                 15908 |         1 |               2 |         2 |                      2 |                         4 |          0.713863 |                            0.767918 |                  1.81199  |                            0.423799 |
+|  2 |            2 |           3 |        48.8305  |       0.612653 |                         7.88498 | 0.696099 |        38.268  |   0.958699 |                 17152 |         2 |               3 |         3 |                      3 |                         9 |          0.419015 |                            3.01564  |                  5.70286  |                            0.528794 |
+|  3 |            3 |           4 |         9.92391 |       0.733061 |                         3.55465 | 0.54111  |        17.7804 |   0.811772 |                 16100 |         1 |               4 |         4 |                      4 |                        16 |          0.394466 |                            1.14778  |                  2.62218  |                            0.437721 |
+|  4 |            4 |           5 |         1.05087 |       0.89476  |                         1.15672 | 0.56037  |         4.4924 |   0.948957 |                 15973 |         1 |               5 |         5 |                      5 |                        25 |          0.654336 |                            0.253501 |                  0.604733 |                            0.419195 |
+
+The first and second column are indexing values for the rows and can be ignored.
+|Key| Definition|
+|---|-----------|
+|object_ID | Nucleus object (if nucleus is fragmented, each fragment has it's own object ID)|
+|Nuc_area_um^2 | Area of each nucleus fragment in um^2|
+|eccentricity| Measure on a scale of 0-1 if the object is more ellipse shaped (1) or a perfect circle (0)|
+|equivalent_diameter_area_um^2 | The diameter of a circle with the same area as the region |
+|extent| Ratio of pixels in the region to pixels in the total bounding box (if you drew a box to enclose the object)|
+| perimeter_um | length of the outline of the object in um |
+|solidity | Ratio of pixels in the region to pixels of the convex hull image (if you drew a polygon to enclose the object) |
+|Image_intensity_max | may grey value in the nucleus (not a helpful measurement, included when getting the label values of the overlapping objects)|
+|Cell_ID | ID of the cell the nucleus compartment comes from|
+|Nuc_region_ID| ID of the nucleus fragment/region (should match the object_ID column)|
+|Band_ID | ID of the 25-pixel band created to measure heterochromatin (should match the Nuc_region_ID)|
+|Dense_nuc_regions_ID | ID of mask object of segmented electron dense rois in nuclei regions (should match the Nuc_region_ID)|
+| Heterochromatin_band_ID | ID of mask object of segmented electron dense rois in the 25-pixel band (should match the Nuc_region_ID)|
+| nuc_circularity | Measure on a scale of 0-1 of how perfect of a circle the object is 0 being less perfect and 1 being a perfect circle |
+| heterochromatin_area_in_band_um^2 | 
+
 ## Notes
 
 ### Optional Analyses - what other information could you get from this data
