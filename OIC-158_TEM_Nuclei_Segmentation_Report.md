@@ -43,6 +43,7 @@ All nuclei visible in the 1400X images were manually outlined in Napari (includi
 These ground truth outlines were generated to use for training an AI nuclear segmentation tool for future data collected. In the case of fragmented nuclei, all fragments were assigned the same label ID for assigning cell IDs during measurement collection.
 
 Complete nuclei were required for the analysis, so all nuclei touching the border of the images were filtered out and all nuclei regions were given unique label IDs:
+<img src='/Snapshots/Nuclei_unique_ID.png' width='805' height='463'></br>
 
 ![relabeld nuc ID](/Snapshots/Nuclei_unique_ID.png)
 
@@ -91,8 +92,12 @@ The first and second column are indexing values for the rows and can be ignored.
 |Dense_nuc_regions_ID | ID of mask object of segmented electron dense rois in nuclei regions (should match the Nuc_region_ID)|
 | Heterochromatin_band_ID | ID of mask object of segmented electron dense rois in the 25-pixel band (should match the Nuc_region_ID)|
 | nuc_circularity | Measure on a scale of 0-1 of how perfect of a circle the object is 0 being less perfect and 1 being a perfect circle |
-| heterochromatin_area_in_band_um^2 | 
+| heterochromatin_area_in_band_um^2 | Area of 25-pixel band covered by electron dense heterochromatin in um^2|
+|25-pixel_band_area_um^2 | Area of the 25-pixel band outlining the nucleus in um^2|
+|norm_area_heterochromatin_in_band| fraction of 25-pixel band covered by heterochromatin calculated as heterochromatin_area_in_band_um^2/25-pixel_band_area_um^2 |
 
 ## Notes
+If more data is to be collected, or this type of analysis will be used for other projects, I recommend creating an AI-segmentation tool for segmenting the nuclei. EM data can be challenging to apply traditional threshold approaches to reliably and AI-segmentation tools can be very helpful in this regard.
 
 ### Optional Analyses - what other information could you get from this data
+There was mention in a previous conversation about measuring the nucleoli within the nuclei. This can can be added to the analysis if needed.
