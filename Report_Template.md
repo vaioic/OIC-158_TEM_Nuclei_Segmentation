@@ -1,7 +1,7 @@
 # OIC-#_Report
-Total Hours:
+Total Hours: 17.5
 
-Github Repo: 
+Github Repo: https://github.com/vaioic/OIC-158_TEM_Nuclei_Segmentation
 
 ## Authorship and Methods
 Research supported by the Optical Imaging Core should be acknowledged and considered for authorship. Please refer to our [SharePoint page](https://vanandelinstitute.sharepoint.com/sites/optical/SitePages/Acknowledgements-and-Authorship.aspx) for guidelines. 
