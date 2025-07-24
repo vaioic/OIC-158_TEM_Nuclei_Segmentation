@@ -43,6 +43,7 @@ All nuclei visible in the 1400X images were manually outlined in Napari (includi
 These ground truth outlines were generated to use for training an AI nuclear segmentation tool for future data collected. In the case of fragmented nuclei, all fragments were assigned the same label ID for assigning cell IDs during measurement collection.
 
 Complete nuclei were required for the analysis, so all nuclei touching the border of the images were filtered out and all nuclei regions were given unique label IDs:
+
 <img src='/Snapshots/Nuclei_unique_ID.png' width='805' height='463'></br>
 
 ![relabeld nuc ID](/Snapshots/Nuclei_unique_ID.png)
