@@ -1,9 +1,3 @@
-# Project_Template
-Serves as the template for new projects
+# OIC-158 TEM Analysis
 
-Python Environment:
-```
-Packages listed here
-```
-
-Describe content of subfolders, if applicable.
+Use [yaml file](/CellPoseCLE.yaml) to recreate env
